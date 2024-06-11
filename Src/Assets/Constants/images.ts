@@ -1,0 +1,45 @@
+const images = {
+    splash:require("../images/splash5.png"),
+    google:require("../images/google.png"),
+    facebook:require("../images/facebook.png"),
+    twitter:require("../images/twitter.png"),
+    BottomHome:require("../images/bottom1.png"),
+    BottomExplore:require("../images/bottom2.png"),
+    BottomCart:require("../images/bottom3.png"),
+    BottomProfile:require("../images/bottom4.png"),
+    Header_money:require("../images/home_money.png"),
+    Header_notification:require("../images/home_notification.png"),
+    searchIcon:require("../images/search.png"),
+    filterIcon:require("../images/filter.png"),
+    sliderImage1:require("../images/slide1.png"),
+    sliderImage2:require("../images/slide2.png"),
+    category1:require("../images/category1.png"),
+    category2:require("../images/category2.png"),
+    category3:require("../images/category3.png"),
+    BrowserProduct1:require("../images/b1.png"),
+    BrowserProduct2:require("../images/b2.png"),
+    BrowserProduct3:require("../images/b3.png"),
+    BrowserProduct4:require("../images/b4.png"),
+    star:require("../images/star.png"),
+    rice:require("../images/productlist.png"),
+    Header_heart:require("../images/exportH1.png"),
+    Header_filter:require("../images/exportH2.png"),
+    trash:require("../images/trash-bin.png"),
+    back:require("../images/back.png"),
+    empty:require("../images/delete.png"),
+    not_found:require("../images/no_found.png"),
+    cost:require("../images/cost.png"),
+    dropdown:require("../images/dropdown.png"),
+    drawerbg:require("../images/menu-bg.jpg"),
+    userimg:require("../images/user-profile.jpg"),
+    setting:require("../images/settings.png"),
+    share:require("../images/share.png"),
+    logout:require("../images/log-out.png"),
+    drawer:require("../images/drawer.png"),
+    
+
+
+    
+    
+}
+export default images;
