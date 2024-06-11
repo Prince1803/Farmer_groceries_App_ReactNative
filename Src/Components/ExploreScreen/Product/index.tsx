@@ -11,21 +11,20 @@ const ExploreProduct = () => {
     <View style={styles.itemContainer}>
       <View style={styles.itemimg}>
         <Image source={item.img} style={styles.image} />
-
       </View>
       <View style={styles.detailcontainer}>
-      <Text style={styles.text}>{item.title}</Text>
-      <View style={styles.detailmain}>
-        <View>
-          <Text style={styles.text}>₹{item.price}</Text>
+        <Text style={styles.text}>{item.title}</Text>
+        <View style={styles.detailmain}>
+          <View>
+            <Text style={styles.text}>₹{item.price}</Text>
+          </View>
+          <View style={styles.detail}>
+            <Image source={item.star} />
+            <Text style={styles.text}>{item.rating}</Text>
+            <Text>{item.rater}</Text>
+          </View>
         </View>
-        <View style={styles.detail}>
-          <Image  source={item.star} />
-          <Text style={styles.text}>{item.rating}</Text>
-          <Text>{item.rater}</Text>
-        </View>
-        </View>
-        <Button title="Add to Cart"  style={styles.btn}/>
+        <Button title="Add to Cart" style={styles.btn} />
       </View>
     </View>
   );
@@ -37,11 +36,8 @@ const ExploreProduct = () => {
           data={BrProduct}
           renderItem={renderItem}
           showsVerticalScrollIndicator={false}
-          
-          // showsHorizontalScrollIndicator={false}
-          // horizontal={true}
           numColumns={2}
-          keyExtractor={(item) => item.id.toString()}
+          keyExtractor={item => item.id.toString()}
         />
       ) : (
         'Error'
@@ -63,53 +59,39 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 24,
     textAlign: 'left',
-    // paddingLeft: 15,
   },
   viewDetails: {
     color: colors.text,
     fontSize: 12,
     lineHeight: 19,
   },
-  itemContainer:{
-    marginTop:5
+  itemContainer: {
+    marginTop: 5,
   },
-  itemimg:{
-// alignSelf:"center",
-  },
-  image:{
+  itemimg: {},
+  image: {
     width: 179,
     height: 180,
-    marginRight:15,
-
-
+    marginRight: 15,
   },
-  text:{
-    color:colors.text,
-    fontWeight:"500",
-    fontSize:16,
-    // marginTop:10
+  text: {
+    color: colors.text,
+    fontWeight: '500',
+    fontSize: 16,
   },
-  detailmain:{
-   flexDirection:"row",
-    justifyContent:"space-between",
+  detailmain: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
-  detailcontainer:{
-    // flexDirection:"row",
-    // justifyContent:"space-between",
-    // borderWidth:1
-    margin:10
-
+  detailcontainer: {
+    margin: 10,
   },
-  detail:{
-    flexDirection:"row",
-    paddingRight:10,
-
-
-    // justifyContent:"space-evenly",
+  detail: {
+    flexDirection: 'row',
+    paddingRight: 10,
   },
-  btn:{
-    marginRight:10,
-    // alignSelf:"center"
+  btn: {
+    marginRight: 10,
   },
 });
 

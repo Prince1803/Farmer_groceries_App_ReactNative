@@ -32,11 +32,10 @@ const Home = () => {
         drawerImage={images.drawer}
         leftImage={images.Header_money}
         rightImage={images.Header_notification}
-        onLeftImagePress={() => Alert.alert('Balance Pressed')}
-        onRightImagePress={() => Alert.alert('Notification Pressed')}
+        onLeftImagePress={() => Alert.alert('Balance was ₹50')}
+        onRightImagePress={() => Alert.alert('No new Notifications')}
         showLeftText={true}
         leftText="50"
-
       />
 
       <View style={styles.containermain}>

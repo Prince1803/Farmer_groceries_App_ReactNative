@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, Image, ScrollView, Alert} from 'react-native';
 import images from '../../Assets/Constants/images';
 import Header from '../../Assets/Constants/Header';
@@ -8,23 +8,43 @@ import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
 
 const Profile = () => {
-  const currentUser = auth().currentUser;
+  const [currentUser, setCurrentUser] = useState(null);
+
   const navigation = useNavigation();
 
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(user => {
+      setCurrentUser(user);
+    });
+    return subscriber;
+  }, []);
+
   const handleLogOut = () => {
-    auth()
-      .signOut()
-      .then(() =>
-        Alert.alert('User signed out!').then(() =>
-          navigation.navigate('Login'),
-        ),
-      );
+    Alert.alert(
+      'Confirm Logout',
+      'Are you sure you want to log out?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'OK',
+          onPress: () => {
+            auth()
+              .signOut()
+              .then(() => {
+                navigation.navigate('Login');
+              });
+          },
+        },
+      ],
+      {cancelable: false},
+    );
   };
   return (
     <View style={styles.container}>
-      <Header title="Profile"
-        drawerImage={images.drawer}
-        />
+      <Header title="Profile" drawerImage={images.drawer} />
       <View style={styles.header}>
         <Image source={images.sliderImage2} style={styles.profileImage} />
         <Text style={styles.name}>Prince</Text>
@@ -52,7 +72,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
-    // padding: 16,
     paddingRight: 10,
     paddingLeft: 10,
   },

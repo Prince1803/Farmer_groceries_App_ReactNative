@@ -148,9 +148,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     marginTop: 5,
   },
-  itemimg: {
-    // alignSelf:"center",
-  },
+  itemimg: {},
   image: {
     width: 179,
     height: 180,
@@ -160,16 +158,12 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontWeight: '500',
     fontSize: 16,
-    // marginTop:10
   },
   detailmain: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   detailcontainer: {
-    // flexDirection:"row",
-    // justifyContent:"space-between",
-    // borderWidth:1
     margin: 10,
   },
   detail: {
@@ -180,7 +174,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    // opacity:0.5
     backgroundColor: 'rgba(0,0,0,0.5)',
   },
   modalContent: {
@@ -195,22 +188,16 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: colors.primarycolor,
   },
-  modaltext:{
+  modaltext: {
     borderWidth: 1,
     marginBottom: 15,
-    borderRadius:5
-    // justifyContent:"center",
-    // alignSelf:"center"
-
+    borderRadius: 5,
   },
   modalOption: {
     fontSize: 18,
-    // justifyContent:"center",
-    alignSelf:"center",
-    fontWeight:"bold",
-    color:colors.black
-    // justifyContent:"center",
-    // alignItems:"center",
+    alignSelf: 'center',
+    fontWeight: 'bold',
+    color: colors.black,
   },
   modalClose: {
     fontSize: 16,

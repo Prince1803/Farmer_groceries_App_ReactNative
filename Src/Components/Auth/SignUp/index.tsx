@@ -136,7 +136,10 @@ const Signup = ({navigation}: any) => {
   // };
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <StatusBar barStyle="light-content" backgroundColor={colors.primarycolor} />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={colors.primarycolor}
+      />
       <Text style={styles.header}>Create Account</Text>
       <Text style={styles.headertxt}>Let’s Create Account Together</Text>
 

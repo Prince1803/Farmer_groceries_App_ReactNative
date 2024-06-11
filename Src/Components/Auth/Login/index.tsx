@@ -46,7 +46,7 @@ const Login = ({navigation}: any) => {
         .then(() => {
           setEmail('');
           setPassword('');
-          navigation.navigate('Bottom');
+          navigation.navigate('Drawer');
         })
         .catch(error => {
           if (error.code === 'auth/email-already-in-use') {
@@ -113,7 +113,10 @@ const Login = ({navigation}: any) => {
   };
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <StatusBar barStyle="light-content" backgroundColor={colors.primarycolor} />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={colors.primarycolor}
+      />
       <View style={styles.container}>
         <View style={styles.maincontainer}>
           <Text style={styles.header}>Hello Again!</Text>
@@ -133,7 +136,6 @@ const Login = ({navigation}: any) => {
             )}
           </View>
 
-          
           <View style={styles.inputContainer}>
             <TextInput
               mode="outlined"
@@ -148,10 +150,8 @@ const Login = ({navigation}: any) => {
               <Text style={styles.error}>{formError.password}</Text>
             )}
           </View>
-         
-          <TouchableOpacity
-            style={styles.ButtonMain}
-            onPress={create}>
+
+          <TouchableOpacity style={styles.ButtonMain} onPress={create}>
             <Text style={styles.Button}>Log In</Text>
           </TouchableOpacity>
 

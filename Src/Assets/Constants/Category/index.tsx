@@ -32,7 +32,6 @@ const Category = () => {
           renderItem={renderItem}
           showsHorizontalScrollIndicator={false}
           horizontal={true}
-          // keyExtractor={(item) => item.id.toString()}
         />
       ) : (
         'Error'

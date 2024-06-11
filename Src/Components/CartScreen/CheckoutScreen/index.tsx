@@ -23,31 +23,19 @@ const CheckoutScreen = ({route}) => {
     totalBill += item.quantity * item.price;
   });
 
-  const handleorder=()=>{
-    
+  const handleorder = () => {
     Toast.show({
-        type: 'success',
-        text1: `order Placed`,
-        position: 'top',
-        visibilityTime: 2000,
-      });
-  }
+      type: 'success',
+      text1: `order Placed`,
+      position: 'top',
+      visibilityTime: 2000,
+    });
+  };
 
   const renderItem = ({item}) => {
     const totalPrice = item.quantity * item.price;
-    // subtotal += totalPrice;
 
     return (
-      //   <View style={styles.itemContainer}>
-      //     <Image source={item.img} style={styles.image} />
-      //     <View style={styles.detailmain}>
-
-      //     <Text style={styles.itemTitle}>{item.title}</Text>
-      //     <Text style={styles.itemPrice}>₹{item.price}</Text>
-      //     </View>
-      //     {/* Add increment and decrement functionality here */}
-      //   </View>
-      // );
       <View style={styles.itemContainer}>
         <View style={styles.maincontainer}>
           <Image source={item.img} style={styles.image} />
@@ -55,22 +43,10 @@ const CheckoutScreen = ({route}) => {
             <View style={styles.nameprice}>
               <Text style={styles.itemTitle}>{item.title}</Text>
               <Text style={styles.itemPrice}>₹{totalPrice}</Text>
-              {/* <Text style={styles.itemPrice}>{totalPrice}</Text> */}
             </View>
             <View style={styles.operator}>
               <View style={styles.quantityContainer}>
-                {/* <Button
-                  title="-"
-                  onPress={() => decrementQuantity(item.key)}
-                  style={styles.btn}
-                /> */}
-
                 <Text style={styles.quantity}>Item: {item.quantity}</Text>
-                {/* <Button
-                  title="+"
-                  onPress={() => incrementQuantity(item.key)}
-                  style={styles.btn}
-                /> */}
               </View>
             </View>
           </View>
@@ -83,7 +59,7 @@ const CheckoutScreen = ({route}) => {
     <ScrollView
       style={styles.scrollContainer}
       showsVerticalScrollIndicator={false}>
-      <Header title="Checkout"  showBackButton={true}/>
+      <Header title="Checkout" showBackButton={true} />
       <View style={styles.container}>
         <FlatList
           data={cartItems}
@@ -149,9 +125,7 @@ const CheckoutScreen = ({route}) => {
             <Text style={styles.coupontext}>Add Delivery Instructions</Text>
           </TouchableOpacity>
         </View>
-        <Button title='Place Order'
-         onPress={handleorder} 
-         />
+        <Button title="Place Order" onPress={handleorder} />
       </View>
     </ScrollView>
   );
@@ -167,21 +141,14 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   itemContainer: {
-    // flexDirection: 'row',
-    // justifyContent: 'space-between',
-    // alignItems: 'center',
     borderWidth: 1,
     borderRadius: 20,
     padding: 10,
     margin: 5,
     borderColor: '#ccc',
-    // borderBottomWidth: 1,
-    // borderBottomColor: '#ccc',
   },
   maincontainer: {
     flexDirection: 'row',
-    // justifyContent: 'space-between',
-    // borderWidth:1
   },
   image: {
     width: 100,
@@ -191,14 +158,13 @@ const styles = StyleSheet.create({
   alldetail: {
     alignSelf: 'center',
     paddingLeft: 10,
-    // borderWidth:1,
+
     width: '70%',
     justifyContent: 'space-between',
   },
   nameprice: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // borderWidth:1,
     marginBottom: 10,
   },
   itemTitle: {
@@ -262,7 +228,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 24,
     textAlign: 'left',
-    // paddingLeft: 15,
   },
   viewDetails: {
     color: colors.text,
@@ -272,7 +237,6 @@ const styles = StyleSheet.create({
   addresscontainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // marginBottom:
   },
   addresstext: {
     fontSize: 18,
@@ -292,33 +256,17 @@ const styles = StyleSheet.create({
     height: 15,
     width: 15,
     marginTop: 7,
-    // alignSelf:"center"
   },
   shippingaddress: {
-    // margin:10,
     padding: 10,
   },
   shippingno: {
     paddingLeft: 10,
   },
   quantity: {
-    // marginHorizontal: 10,
     fontSize: 18,
     color: colors.primarycolor,
   },
-  //   operator: {
-  //     flexDirection: 'row',
-  //     // justifyContent: 'flex-end',
-  //   },
-  //   quantityContainer: {
-  //     flexDirection: 'row',
-  //     alignItems: 'center',
-  //   },
-  //   btn: {
-  //     borderRadius: 11,
-  //     // height:35,
-  //     // width:25,
-  //   },
 });
 
 export default CheckoutScreen;

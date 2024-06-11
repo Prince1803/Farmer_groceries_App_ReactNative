@@ -5,16 +5,55 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {colors} from '../color';
 import images from '../images';
+import auth from '@react-native-firebase/auth';
+import {useNavigation} from '@react-navigation/native';
 
 const CustomeDrawer = props => {
+  const [currentUser, setCurrentUser] = useState(null);
+  console.log(currentUser);
+
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(user => {
+      setCurrentUser(user);
+    });
+    return subscriber;
+  }, []);
+
+  const handleLogOut = () => {
+    Alert.alert(
+      'Confirm Logout',
+      'Are you sure you want to log out?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'OK',
+          onPress: () => {
+            auth()
+              .signOut()
+              .then(() => {
+                navigation.navigate('Login');
+              });
+          },
+        },
+      ],
+      {cancelable: false},
+    );
+  };
+
   return (
     <View style={styles.header}>
       <DrawerContentScrollView>
@@ -54,7 +93,7 @@ const CustomeDrawer = props => {
             <Text style={styles.sharetxt}>Share with Friends </Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.bottomfirst}>
+        <TouchableOpacity style={styles.bottomfirst} onPress={handleLogOut}>
           <View style={styles.bottomfirstcontain}>
             <Image
               source={images.logout}

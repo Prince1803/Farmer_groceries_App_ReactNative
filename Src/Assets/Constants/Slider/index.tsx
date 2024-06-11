@@ -1,7 +1,14 @@
-import {View, Text, Dimensions, ScrollView, Image, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  Dimensions,
+  ScrollView,
+  Image,
+  StyleSheet,
+} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import images from '../images';
-import { colors } from '../color';
+import {colors} from '../color';
 
 const Slider = () => {
   const imgs = [
@@ -21,7 +28,10 @@ const Slider = () => {
       setActive(prevActive => {
         const nextIndex = (prevActive + 1) % totalSlides;
         if (scrollViewRef.current) {
-          scrollViewRef.current.scrollTo({ x: nextIndex * width, animated: true });
+          scrollViewRef.current.scrollTo({
+            x: nextIndex * width,
+            animated: true,
+          });
         }
         return nextIndex;
       });
@@ -33,9 +43,7 @@ const Slider = () => {
   const change = ({nativeEvent}) => {
     const layoutMeasurement = nativeEvent.layoutMeasurement || {};
     const contentOffset = nativeEvent.contentOffset || {};
-    const slide = Math.ceil(
-        contentOffset.x / layoutMeasurement.width,
-    );
+    const slide = Math.ceil(contentOffset.x / layoutMeasurement.width);
     if (slide !== active) {
       setActive(slide);
     }
@@ -43,7 +51,7 @@ const Slider = () => {
   return (
     <View style={styles.Container}>
       <ScrollView
-      ref={scrollViewRef}
+        ref={scrollViewRef}
         pagingEnabled
         horizontal
         onScroll={change}
@@ -59,9 +67,9 @@ const Slider = () => {
       </ScrollView>
       <View style={styles.pagination}>
         {imgs.map((i, k) => (
-          <Text
-            key={k}
-            style={k == active ? styles.activeDot : styles.dot}>•</Text>
+          <Text key={k} style={k == active ? styles.activeDot : styles.dot}>
+            •
+          </Text>
         ))}
       </View>
     </View>
@@ -69,25 +77,24 @@ const Slider = () => {
 };
 
 export const styles = StyleSheet.create({
-  Container:{
+  Container: {
     justifyContent: 'center',
     alignItems: 'center',
   },
-    pagination:{
-        flexDirection:'row',
-        position:'absolute',
-        bottom:-16,
-        alignSelf:'center'
-    },
-    dot:{
-        color:'#888',
-        fontSize:50,
-
-    },
-    activeDot:{
-        color:colors.primarycolor,
-        fontSize:50,
-    }
-})
+  pagination: {
+    flexDirection: 'row',
+    position: 'absolute',
+    bottom: -16,
+    alignSelf: 'center',
+  },
+  dot: {
+    color: '#888',
+    fontSize: 50,
+  },
+  activeDot: {
+    color: colors.primarycolor,
+    fontSize: 50,
+  },
+});
 
 export default Slider;

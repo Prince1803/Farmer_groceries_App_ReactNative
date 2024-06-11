@@ -36,7 +36,7 @@ export const Categorydata = [
 export const productdetails = [
   {
     name: 'Cherry',
-    image:images.BrowserProduct1,
+    image: images.BrowserProduct1,
     price: '350',
     type: 'Fruits',
     star: images.star,
@@ -72,7 +72,7 @@ export const productdetails = [
   // },
   {
     name: 'Rice',
-    image:images.rice,
+    image: images.rice,
     price: '25',
     type: 'Grains',
     star: images.star,
@@ -98,7 +98,6 @@ export const productdetails = [
     star: images.star,
     rating: '4.9',
     rater: '(324)',
-    
   },
   // {
   //   name: 'Basil',
@@ -120,8 +119,9 @@ export const BrProduct = [
     star: images.star,
     rating: '4.5',
     rater: '(672)',
-    grams:'500 g',
-    description:"Indulge in the natural sweetness and vibrant flavor of our Premium Fresh Cherries.Handpicked at the peak of ripeness, these cherries offer a perfect balance of juicy sweetness and a hint of tartness, making them an irresistible treat for any occasion."
+    grams: '500 g',
+    description:
+      'Indulge in the natural sweetness and vibrant flavor of our Premium Fresh Cherries.Handpicked at the peak of ripeness, these cherries offer a perfect balance of juicy sweetness and a hint of tartness, making them an irresistible treat for any occasion.',
   },
   {
     id: 2,
@@ -131,9 +131,9 @@ export const BrProduct = [
     star: images.star,
     rating: '4.9',
     rater: '(324)',
-    grams:'50 g',
-    description:"Elevate your wellness routine with our Pure Tulsi (Holy Basil) Leaves.Revered for centuries for its numerous health benefits and spiritual significance, Tulsi is a sacred herb known for its calming properties and rich aroma. Sourced from the finest organic farms, our Tulsi leaves offer a pure and authentic experience, allowing you to harness the power of this revered herb for your holistic well-being."
-
+    grams: '50 g',
+    description:
+      'Elevate your wellness routine with our Pure Tulsi (Holy Basil) Leaves.Revered for centuries for its numerous health benefits and spiritual significance, Tulsi is a sacred herb known for its calming properties and rich aroma. Sourced from the finest organic farms, our Tulsi leaves offer a pure and authentic experience, allowing you to harness the power of this revered herb for your holistic well-being.',
   },
   {
     id: 3,
@@ -143,10 +143,9 @@ export const BrProduct = [
     star: images.star,
     rating: '4.9',
     rater: '(560)',
-    grams:'0.5 L',
-    description:"Savor the creamy goodness of our Fresh Dairy Milk, a timeless classic loved by all ages.Straight from the farm to your table, our milk is a wholesome source of nutrition and delight, perfect for enjoying on its own, with cereal, or as an essential ingredient in your favorite recipes."
-
-
+    grams: '0.5 L',
+    description:
+      'Savor the creamy goodness of our Fresh Dairy Milk, a timeless classic loved by all ages.Straight from the farm to your table, our milk is a wholesome source of nutrition and delight, perfect for enjoying on its own, with cereal, or as an essential ingredient in your favorite recipes.',
   },
   {
     id: 4,
@@ -156,10 +155,9 @@ export const BrProduct = [
     star: images.star,
     rating: '4.7',
     rater: '(874)',
-    grams:'750 g',
-    description:"Experience the vibrant taste and juicy freshness of our Vine-Ripened Tomatoes, nature's gift packed with flavor and nutrition.Grown under the warm sun and carefully tended to, our tomatoes are bursting with savory sweetness, making them a versatile staple in any kitchen. "
-
-
+    grams: '750 g',
+    description:
+      "Experience the vibrant taste and juicy freshness of our Vine-Ripened Tomatoes, nature's gift packed with flavor and nutrition.Grown under the warm sun and carefully tended to, our tomatoes are bursting with savory sweetness, making them a versatile staple in any kitchen. ",
   },
   {
     id: 5,
@@ -169,9 +167,8 @@ export const BrProduct = [
     star: images.star,
     rating: '4.5',
     rater: '(672)',
-    grams:'400 g',
-    description:"Indulge in the natural sweetness and vibrant flavor of our Premium Fresh Cherries.Handpicked at the peak of ripeness, these cherries offer a perfect balance of juicy sweetness and a hint of tartness, making them an irresistible treat for any occasion."
-
-
+    grams: '400 g',
+    description:
+      'Indulge in the natural sweetness and vibrant flavor of our Premium Fresh Cherries.Handpicked at the peak of ripeness, these cherries offer a perfect balance of juicy sweetness and a hint of tartness, making them an irresistible treat for any occasion.',
   },
 ];

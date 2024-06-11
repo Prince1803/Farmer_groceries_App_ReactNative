@@ -2,7 +2,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import Login from '../Auth/Login';
 import Signup from '../Auth/SignUp';
-import Home from '../HomeScreen';
 import {TabNav} from '../../Assets/Constants/BottomTab';
 import {Image, StyleSheet, View} from 'react-native';
 import {colors} from '../../Assets/Constants/color';
@@ -25,13 +24,7 @@ const Drawer = createDrawerNavigator();
 export const AuthStack = () => {
   return (
     <Stack.Navigator>
-      {/* <Stack.Screen
-        name="splash"
-        component={SplashScreen}
-        options={{headerShown: false}}
-      /> */}
-
-      {/* <Stack.Screen
+      <Stack.Screen
         name="Login"
         component={Login}
         options={{headerShown: false}}
@@ -40,16 +33,13 @@ export const AuthStack = () => {
         name="Signup"
         component={Signup}
         options={{headerShown: false}}
-      /> */}
+      />
 
       <Stack.Screen
         name="Drawer"
         component={DrawerScreen}
         options={{headerShown: false}}
       />
-
-      {/* <Tab.Screen name="Bottom" component={BottomTab} options={{headerShown: false}} /> */}
-
       <Stack.Screen
         name="Search"
         component={SearchScreen}
@@ -78,22 +68,25 @@ const DrawerScreen = () => {
   return (
     <Drawer.Navigator
       drawerContent={props => <CustomeDrawer {...props} />}
-
       screenOptions={{
         headerShown: false,
         drawerActiveBackgroundColor: colors.secondarycolor,
-        drawerActiveTintColor:colors.primarycolor,
-        drawerInactiveTintColor:colors.text,
-        drawerLabelStyle: {marginLeft: -20,fontSize:15},
+        drawerActiveTintColor: colors.primarycolor,
+        drawerInactiveTintColor: colors.text,
+        drawerLabelStyle: {marginLeft: -20, fontSize: 15},
         // overlayColor:colors.secondarycolor
-
-      }}>  
+      }}>
       <Drawer.Screen
         name="Home"
         component={BottomTab}
         options={{
           drawerIcon: ({color}) => (
-            <Image source={images.BottomHome} tintColor={color} style={styles.img}resizeMode='contain'/>
+            <Image
+              source={images.BottomHome}
+              tintColor={color}
+              style={styles.img}
+              resizeMode="contain"
+            />
           ),
         }}
       />
@@ -103,7 +96,12 @@ const DrawerScreen = () => {
         component={Explore}
         options={{
           drawerIcon: ({color}) => (
-            <Image source={images.BottomExplore} tintColor={color} style={styles.img} resizeMode='contain'/>
+            <Image
+              source={images.BottomExplore}
+              tintColor={color}
+              style={styles.img}
+              resizeMode="contain"
+            />
           ),
         }}
       />
@@ -112,7 +110,12 @@ const DrawerScreen = () => {
         component={Cart}
         options={{
           drawerIcon: ({color}) => (
-            <Image source={images.BottomCart} tintColor={color} style={styles.img} resizeMode='contain'/>
+            <Image
+              source={images.BottomCart}
+              tintColor={color}
+              style={styles.img}
+              resizeMode="contain"
+            />
           ),
         }}
       />
@@ -121,7 +124,12 @@ const DrawerScreen = () => {
         component={Profile}
         options={{
           drawerIcon: ({color}) => (
-            <Image source={images.BottomProfile} tintColor={color} style={styles.img}resizeMode='contain'/>
+            <Image
+              source={images.BottomProfile}
+              tintColor={color}
+              style={styles.img}
+              resizeMode="contain"
+            />
           ),
         }}
       />
@@ -137,8 +145,6 @@ const BottomTab = () => {
         headerShown: false,
         tabBarHideOnKeyboard: true,
       }}>
-      {/* <Tab.Screen name="Home" component={Home} options={{headerShown: false}} /> */}
-
       {TabNav?.map((item, index) => {
         return (
           <Tab.Screen
@@ -186,9 +192,9 @@ const styles = StyleSheet.create({
     width: '100%',
     textAlign: 'center',
   },
-  img:{
-    height:23,
-    width:25
-  }
+  img: {
+    height: 23,
+    width: 25,
+  },
 });
 export default BottomTab;

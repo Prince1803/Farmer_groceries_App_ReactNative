@@ -91,30 +91,6 @@ const Cart = () => {
       incrementQuantity,
       decrementQuantity,
     });
-
-    // let totalBill = 0;
-    // cartItems.forEach(item => {
-    //   totalBill += item.quantity * item.price;
-    // });
-    // const formattedTotalBill = `₹${totalBill}`;
-
-    // Alert.alert(
-    //   'Proceed to Checkout',
-    //   `Total Bill: ${formattedTotalBill}`,
-    //   [
-    //     {
-    //       text: 'Cancel',
-    //       style: 'cancel',
-    //     },
-    //     {
-    //       text: 'Proceed',
-    //       onPress: () => {
-    //         navigation.navigate('Checkout' , {cartItems,incrementQuantity, decrementQuantity});
-    //       },
-    //     },
-    //   ],
-    //   {cancelable: false},
-    // );
   };
 
   const renderItem = ({item}) => {
@@ -128,7 +104,6 @@ const Cart = () => {
             <View style={styles.nameprice}>
               <Text style={styles.itemTitle}>{item.title}</Text>
               <Text style={styles.itemPrice}>₹{totalPrice}</Text>
-              {/* <Text style={styles.itemPrice}>{totalPrice}</Text> */}
             </View>
             <View style={styles.operator}>
               <View style={styles.quantityContainer}>
@@ -146,8 +121,6 @@ const Cart = () => {
               </View>
               <TouchableOpacity onPress={() => removeItem(item.key)}>
                 <Image source={images.trash} style={styles.trashimage} />
-
-                {/* <Text style={styles.removeButton}>Remove</Text> */}
               </TouchableOpacity>
             </View>
           </View>
@@ -168,11 +141,13 @@ const Cart = () => {
       />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
-          {cartItems.length>0 && (<Button
-            title="Clear All"
-            onPress={clearCart}
-            style={styles.clearCartBtn}
-          />)}
+          {cartItems.length > 0 && (
+            <Button
+              title="Clear All"
+              onPress={clearCart}
+              style={styles.clearCartBtn}
+            />
+          )}
           <FlatList
             data={cartItems}
             renderItem={renderItem}
@@ -185,7 +160,6 @@ const Cart = () => {
             }
           />
         </View>
-        {/* <Button title="Proceed to Checkout"  style={styles.checkoutbtn} onPress={}/> */}
         {cartItems.length > 0 && (
           <>
             <TouchableOpacity
@@ -218,7 +192,7 @@ const styles = StyleSheet.create({
   clearCartBtn: {
     alignSelf: 'flex-end',
     height: 40,
-    marginTop:0
+    marginTop: 0,
   },
 
   emptycontainer: {
@@ -237,21 +211,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   itemContainer: {
-    // flexDirection: 'row',
-    // justifyContent: 'space-between',
-    // alignItems: 'center',
     borderWidth: 1,
     borderRadius: 20,
     padding: 10,
     margin: 5,
     borderColor: '#ccc',
-    // borderBottomWidth: 1,
-    // borderBottomColor: '#ccc',
   },
   maincontainer: {
     flexDirection: 'row',
-    // justifyContent: 'space-between',
-    // borderWidth:1
   },
   image: {
     width: 100,
@@ -261,14 +228,14 @@ const styles = StyleSheet.create({
   alldetail: {
     alignSelf: 'center',
     paddingLeft: 10,
-    // borderWidth:1,
+
     width: '70%',
     justifyContent: 'space-between',
   },
   nameprice: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // borderWidth:1,
+
     marginBottom: 10,
   },
   itemTitle: {
@@ -291,8 +258,6 @@ const styles = StyleSheet.create({
   },
   btn: {
     borderRadius: 11,
-    // height:35,
-    // width:25,
   },
   trashimage: {
     height: 40,
@@ -310,18 +275,11 @@ const styles = StyleSheet.create({
   moreitem: {
     width: '90%',
     alignSelf: 'center',
-    // borderWidth:1
   },
   text: {
     color: colors.primarycolor,
     fontWeight: 'bold',
   },
-  // removeButton: {
-  //   color: colors.red,
-  //   fontWeight: 'bold',
-  //   alignItems:"center",
-  //   // marginTop:20
-  // },
 });
 
 export default Cart;

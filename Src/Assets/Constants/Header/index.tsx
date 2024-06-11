@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({
   onRightImagePress,
   showLeftText = false,
   leftText = '',
-  showBackButton = false, 
+  showBackButton = false,
   drawerImage,
 }) => {
   const navigation = useNavigation();
@@ -32,18 +32,17 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <View style={styles.headerStyle}>
       {drawerImage && (
-        <TouchableOpacity 
-          onPress={() => navigation.dispatch(DrawerActions.openDrawer())} 
-          style={styles.drawerButton}
-        >
+        <TouchableOpacity
+          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+          style={styles.drawerButton}>
           <Image source={drawerImage} style={styles.drawerImageStyle} />
         </TouchableOpacity>
       )}
       {showBackButton && (
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <Image source={images.back} 
-           style={styles.backbtn}
-            />
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.backButton}>
+          <Image source={images.back} style={styles.backbtn} />
         </TouchableOpacity>
       )}
       <Text style={styles.headerTitle}>{title}</Text>
@@ -82,43 +81,32 @@ const styles = StyleSheet.create({
     height: 80,
     padding: 10,
     backgroundColor: colors.white,
-    // borderWidth:1,
-
-    // margin:10
   },
   drawerButton: {
     marginRight: 10,
-    backgroundColor:colors.secondarycolor,
-    borderRadius:34,
-    height:40,
-    width:40,
-    // alignSelf:"center",
-
+    backgroundColor: colors.secondarycolor,
+    borderRadius: 34,
+    height: 40,
+    width: 40,
   },
   drawerImageStyle: {
     width: 30,
     height: 30,
     tintColor: colors.primarycolor,
-    alignSelf:"center",
-    marginTop:5,
-    
-
+    alignSelf: 'center',
+    marginTop: 5,
   },
   backButton: {
-    // padding: 10,
-   marginRight:10,
-  //  alignSelf:"center"
+    marginRight: 10,
   },
-  backbtn:{
-    height:30,
-    width:30,
-    color:colors.primarycolor,
+  backbtn: {
+    height: 30,
+    width: 30,
+    color: colors.primarycolor,
   },
   headerTitle: {
     flex: 1,
-    // textAlign: 'left',
-    // borderWidth:1,
-    fontSize: 26,
+    fontSize: 24,
     color: colors.primarycolor,
     fontWeight: 'bold',
   },
@@ -132,8 +120,6 @@ const styles = StyleSheet.create({
     width: 50,
     alignSelf: 'center',
     marginRight: 10,
-
-    // padding: 7,
   },
   leftImageContainerWithText: {
     backgroundColor: colors.secondarycolor,
@@ -175,7 +161,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end',
     width: 130,
-    // borderWidth:1
   },
 });
 

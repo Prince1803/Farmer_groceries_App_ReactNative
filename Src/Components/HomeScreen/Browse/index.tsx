@@ -44,9 +44,6 @@ const BrowseProduct = () => {
           data={BrProduct}
           renderItem={renderItem}
           showsVerticalScrollIndicator={false}
-          
-          // showsHorizontalScrollIndicator={false}
-          // horizontal={true}
           numColumns={2}
           keyExtractor={(item) => item.id.toString()}
         />
@@ -70,7 +67,6 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 24,
     textAlign: 'left',
-    // paddingLeft: 15,
   },
   viewDetails: {
     color: colors.text,
@@ -81,7 +77,6 @@ export const styles = StyleSheet.create({
     marginTop:5
   },
   itemimg:{
-// alignSelf:"center",
   },
   image:{
     width: 179,
@@ -94,25 +89,18 @@ export const styles = StyleSheet.create({
     color:colors.text,
     fontWeight:"500",
     fontSize:16,
-    // marginTop:10
   },
   detailmain:{
    flexDirection:"row",
     justifyContent:"space-between",
   },
   detailcontainer:{
-    // flexDirection:"row",
-    // justifyContent:"space-between",
-    // borderWidth:1
     margin:10
 
   },
   detail:{
     flexDirection:"row",
     paddingRight:10,
-
-
-    // justifyContent:"space-evenly",
   },
 });
 
