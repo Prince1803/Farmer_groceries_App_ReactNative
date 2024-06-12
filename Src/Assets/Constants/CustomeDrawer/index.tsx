@@ -19,7 +19,6 @@ import {useNavigation} from '@react-navigation/native';
 
 const CustomeDrawer = props => {
   const [currentUser, setCurrentUser] = useState(null);
-  console.log(currentUser);
 
   const navigation = useNavigation();
 
@@ -48,6 +47,7 @@ const CustomeDrawer = props => {
                 navigation.navigate('Login');
               });
           },
+          
         },
       ],
       {cancelable: false},

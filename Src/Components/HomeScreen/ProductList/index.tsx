@@ -12,6 +12,7 @@ import {productdetails} from '../../../Assets/Constants/data';
 import {colors} from '../../../Assets/Constants/color';
 import Header from '../../../Assets/Constants/Header';
 import images from '../../../Assets/Constants/images';
+import Button from '../../../Assets/Constants/Button';
 
 const ProductList = ({route}: any) => {
   const {title} = route.params;
@@ -97,28 +98,19 @@ const ProductList = ({route}: any) => {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Sort By</Text>
-            <TouchableOpacity onPress={() => setSelectedFilter('A-Z')}>
-              <View style={styles.modaltext}>
-                <Text style={styles.modalOption}>A-Z</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setSelectedFilter('Z-A')}>
-              <View style={styles.modaltext}>
-                <Text style={styles.modalOption}>Z-A</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => setSelectedFilter('Price: Low to High')}>
-              <View style={styles.modaltext}>
-                <Text style={styles.modalOption}>Price: Low to High</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => setSelectedFilter('Price: High to Low')}>
-              <View style={styles.modaltext}>
-                <Text style={styles.modalOption}>Price: High to Low</Text>
-              </View>
-            </TouchableOpacity>
+            <View style={styles.modaltext}>
+              <Button title="A-Z" onPress={() => setSelectedFilter('A-Z')} />
+              <Button title="Z-A" onPress={() => setSelectedFilter('Z-A')} />
+              <Button
+                title="Price: Low to High"
+                onPress={() => setSelectedFilter('Price: Low to High')}
+              />
+              <Button
+                title="Price: High to Low"
+                onPress={() => setSelectedFilter('Price: High to Low')}
+              />
+            </View>
+
             <TouchableOpacity onPress={() => setIsModalVisible(false)}>
               <Text style={styles.modalClose}>Cancel</Text>
             </TouchableOpacity>
@@ -179,7 +171,7 @@ const styles = StyleSheet.create({
   modalContent: {
     width: 300,
     padding: 20,
-    backgroundColor: colors.white,
+    backgroundColor: colors.secondarycolor,
     borderRadius: 10,
   },
   modalTitle: {
@@ -189,9 +181,9 @@ const styles = StyleSheet.create({
     color: colors.primarycolor,
   },
   modaltext: {
-    borderWidth: 1,
-    marginBottom: 15,
-    borderRadius: 5,
+    // borderWidth: 1,
+    // marginBottom: 15,
+    // borderRadius: 5,
   },
   modalOption: {
     fontSize: 18,
