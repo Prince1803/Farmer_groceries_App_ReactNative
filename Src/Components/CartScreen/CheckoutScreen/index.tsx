@@ -7,31 +7,101 @@ import {
   ScrollView,
   TouchableOpacity,
   Pressable,
+  Alert,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../../../Assets/Constants/Header';
 import {colors} from '../../../Assets/Constants/color';
 import Button from '../../../Assets/Constants/Button';
 import images from '../../../Assets/Constants/images';
 import Toast from 'react-native-toast-message';
+import {CardField, initPaymentSheet, presentPaymentSheet, useStripe} from '@stripe/stripe-react-native';
 
 const CheckoutScreen = ({route}) => {
+  const [Total, setTotal] = useState();
+  const [Amout, setAmout] = useState();
+
   const {cartItems, incrementQuantity, decrementQuantity} = route.params;
+  const {confirmPayment} = useStripe();
 
   let totalBill = 0;
-  cartItems.forEach(item => {
-    totalBill += item.quantity * item.price;
-  });
 
-  const handleorder = () => {
-    Toast.show({
-      type: 'success',
-      text1: `order Placed`,
-      position: 'top',
-      visibilityTime: 2000,
+  useEffect(() => {
+    cartItems.forEach(item => {
+      const totalAmout = (totalBill += item.quantity * item.price);
+      setAmout(totalAmout);
+      const total = totalBill + 38;
+      setTotal(total);
     });
+  }, [Total]);
+
+
+  const createPaymentIntent = async (amount: number) => {
+    console.log(amount);
+    try {
+      const response = await fetch(
+        'https://31d3-1-22-54-189.ngrok-free.app/payments/intents',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({amount}),
+        },
+      );
+
+      console.log('response', response);
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message);
+      }
+
+      return data;
+    } catch (error) {
+      console.error(error);
+      Alert.alert('Error', 'Failed to create payment intent');
+      return null;
+    }
   };
 
+  const onCheckout = async () => {
+    const paymentIntentData = await createPaymentIntent(
+      Math.floor(Total * 100),
+    );
+
+    if (!paymentIntentData) {
+      return;
+    }
+
+    const {error: initError} = await initPaymentSheet({
+      merchantDisplayName: 'Farmers',
+      paymentIntentClientSecret: paymentIntentData.paymentIntent,
+      defaultBillingDetails: {
+        name:  'Michael Miller',
+      },
+    });
+
+    if (initError) {
+      Alert.alert('Something went wrong', initError.message);
+      return;
+    }
+
+    const {error: paymentError} = await presentPaymentSheet();
+
+    if (paymentError) {
+      Alert.alert(`Error code: ${paymentError.code}`, paymentError.message);
+      return;
+    }
+
+    onCreateOrder();
+  };
+
+  const onCreateOrder = () => {
+    console.log('Order created successfully!');
+    Alert.alert('Success', 'Payment successful and order created!');
+  };
   const renderItem = ({item}) => {
     const totalPrice = item.quantity * item.price;
 
@@ -77,7 +147,7 @@ const CheckoutScreen = ({route}) => {
           <View style={styles.itemContainer}>
             <View style={styles.bill}>
               <Text style={styles.billtext}>Price</Text>
-              <Text style={styles.billtext}>₹{totalBill}</Text>
+              <Text style={styles.billtext}>₹{Amout}</Text>
             </View>
             <View style={styles.bill}>
               <Text style={styles.billtext}>Delivery</Text>
@@ -91,11 +161,11 @@ const CheckoutScreen = ({route}) => {
 
             <View style={styles.bill}>
               <Text style={styles.billtext}>Discount</Text>
-              <Text style={styles.billtext}>₹20</Text>
+              <Text style={styles.billtext}>-₹20</Text>
             </View>
             <View style={styles.billtotal}>
               <Text style={styles.billtotaltext}>Total</Text>
-              <Text style={styles.billtotaltext}>{(totalBill += 42)}</Text>
+              <Text style={styles.billtotaltext}>{Total}</Text>
             </View>
           </View>
         </View>
@@ -125,7 +195,7 @@ const CheckoutScreen = ({route}) => {
             <Text style={styles.coupontext}>Add Delivery Instructions</Text>
           </TouchableOpacity>
         </View>
-        <Button title="Place Order" onPress={handleorder} />
+        <Button title="Place Order" onPress={onCheckout} />
       </View>
     </ScrollView>
   );
@@ -266,6 +336,14 @@ const styles = StyleSheet.create({
   quantity: {
     fontSize: 18,
     color: colors.primarycolor,
+  },
+  card: {
+    backgroundColor: '#FFFFFF',
+    color: '#000000',
+  },
+  cardContainer: {
+    height: 50,
+    marginVertical: 30,
   },
 });
 

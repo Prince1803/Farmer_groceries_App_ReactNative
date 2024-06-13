@@ -107,7 +107,7 @@ const ProductList = ({route}: any) => {
               />
               <Button
                 title="Price: High to Low"
-                onPress={() => setSelectedFilter('Price: High to Low')}
+                onPress={() => setSelectedFilter('Price: High to Low')} 
               />
             </View>
 

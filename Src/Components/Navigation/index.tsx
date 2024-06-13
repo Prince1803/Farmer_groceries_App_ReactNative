@@ -24,7 +24,7 @@ const Drawer = createDrawerNavigator();
 export const AuthStack = () => {
   return (
     <Stack.Navigator>
-      {/* <Stack.Screen
+      <Stack.Screen
         name="Login"
         component={Login}
         options={{headerShown: false}}
@@ -33,7 +33,7 @@ export const AuthStack = () => {
         name="Signup"
         component={Signup}
         options={{headerShown: false}}
-      /> */}
+      />
 
       <Stack.Screen
         name="Drawer"

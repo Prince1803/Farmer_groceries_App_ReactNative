@@ -215,6 +215,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     margin: 5,
+    paddingTop: 0,
     borderColor: '#ccc',
   },
   maincontainer: {

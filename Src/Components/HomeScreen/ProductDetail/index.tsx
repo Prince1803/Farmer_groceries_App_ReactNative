@@ -181,6 +181,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     fontSize: 22,
     fontWeight: 'bold',
+    color:colors.text
   },
   btn: {
     borderRadius: 11,
